@@ -3,6 +3,7 @@ package plugin
 import (
 	"context"
 	"fmt"
+
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/kaytu-io/kaytu/pkg/plugin/proto/src/golang"
 	awsConfig "github.com/kaytu-io/plugin-aws/plugin/aws"
@@ -23,9 +24,10 @@ func NewPlugin() *AWSPlugin {
 
 func (p *AWSPlugin) GetConfig() golang.RegisterConfig {
 	return golang.RegisterConfig{
-		Name:     "kaytu-io/plugin-aws",
-		Version:  version.VERSION,
-		Provider: "aws",
+		Name:                     "kaytu-io/plugin-aws",
+		Version:                  version.VERSION,
+		Provider:                 "aws",
+		MinSupportedKaytuVersion: version.MINSUPPORTEDKAYTUVERSION,
 		Commands: []*golang.Command{
 			{
 				Name:        "ec2-instance",
